@@ -1,5 +1,5 @@
 apply plugin: 'java'
-apply plugin: 'cn.mycommons.aoplog'
+//apply plugin: 'cn.mycommons.aoplog'
 apply plugin: 'application'
 
 sourceCompatibility = "1.7"
@@ -13,53 +13,14 @@ buildscript {
     }
     dependencies {
         classpath 'org.aspectj:aspectjtools:1.8.1'
-        classpath "com.github.liushuixiaoxia:aoplog-plugin:${REPO_VERSION_NAME}"
+//        classpath "com.github.liushuixiaoxia:aoplog-plugin:${REPO_VERSION_NAME}"
     }
 }
 
 mainClassName = "cn.mycommons.aopdemo.SampleJava"
-//
-//aoplog {
-//    enabled = true
-//}
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
-//    compile project(':aoplog-lib')
-    compile "com.github.liushuixiaoxia:aoplog-lib:${REPO_VERSION_NAME}"
+    compile project(':aoplog-lib')
+//    compile "com.github.liushuixiaoxia:aoplog-lib:${REPO_VERSION_NAME}"
 }
-
-//
-//import org.aspectj.bridge.IMessage
-//import org.aspectj.bridge.MessageHandler
-//import org.aspectj.tools.ajc.Main
-//
-//compileJava.doLast {
-//    String[] args = [
-//            "-showWeaveInfo",
-//            "-1.5",
-//            "-inpath", compileJava.destinationDir.toString(),
-//            "-aspectpath", compileJava.classpath.asPath,
-//            "-d", compileJava.destinationDir.toString(),
-//            "-classpath", compileJava.classpath.asPath
-//    ]
-//
-//    def handler = new MessageHandler(true);
-//    new Main().run(args, handler)
-//
-//    def log = project.logger
-//    for (message in handler.getMessages(null, true)) {
-//        switch (message.getKind()) {
-//            case IMessage.WARNING:
-//            case IMessage.INFO:
-//            case IMessage.DEBUG:
-//                log.debug ":aspectj:" + message.message, message.thrown
-//                break;
-//            case IMessage.ABORT:
-//            case IMessage.ERROR:
-//            case IMessage.FAIL:
-//                log.error ":aspectj:" + message.message, message.thrown
-//                break;
-//        }
-//    }
-//}

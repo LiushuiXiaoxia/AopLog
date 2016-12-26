@@ -6,12 +6,12 @@ buildscript {
     }
     dependencies {
         classpath 'org.aspectj:aspectjtools:1.8.1'
-        classpath "com.github.liushuixiaoxia:aoplog-plugin:${REPO_VERSION_NAME}"
+//        classpath "com.github.liushuixiaoxia:aoplog-plugin:${REPO_VERSION_NAME}"
     }
 }
 
 apply plugin: 'com.android.application'
-apply plugin: 'cn.mycommons.aoplog'
+//apply plugin: 'cn.mycommons.aoplog'
 //apply plugin: 'com.github.dcendents.android-maven'
 
 android {
@@ -41,8 +41,8 @@ dependencies {
     compile 'com.android.support:appcompat-v7:25.1.0'
     compile 'com.android.support.constraint:constraint-layout:1.0.0-beta4'
 
-//    compile project(':aoplog-lib')
-    compile "com.github.liushuixiaoxia:aoplog-lib:${REPO_VERSION_NAME}"
+    compile project(':aoplog-lib')
+//    compile "com.github.liushuixiaoxia:aoplog-lib:${REPO_VERSION_NAME}"
 
     testCompile 'junit:junit:4.12'
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
