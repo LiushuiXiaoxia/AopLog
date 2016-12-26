@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/AopDemo.iml" filepath="$PROJECT_DIR$/AopDemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/AopLog.iml" filepath="$PROJECT_DIR$/AopLog.iml" />
       <module fileurl="file://$PROJECT_DIR$/aoplog-lib/aoplog-lib.iml" filepath="$PROJECT_DIR$/aoplog-lib/aoplog-lib.iml" />
       <module fileurl="file://$PROJECT_DIR$/aoplog-plugin/aoplog-plugin.iml" filepath="$PROJECT_DIR$/aoplog-plugin/aoplog-plugin.iml" />
       <module fileurl="file://$PROJECT_DIR$/sample-android/sample-android.iml" filepath="$PROJECT_DIR$/sample-android/sample-android.iml" />

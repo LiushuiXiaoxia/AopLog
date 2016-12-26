@@ -12,7 +12,7 @@ buildscript {
     }
     dependencies {
         classpath 'org.aspectj:aspectjtools:1.8.1'
-//        classpath "com.github.liushuixiaoxia:aoplog-plugin:${REPO_VERSION_NAME}"
+//        classpath "com.github.LiushuiXiaoxia.AopLog:aoplog-plugin:${REPO_VERSION_NAME}"
     }
 }
 
@@ -21,5 +21,5 @@ mainClassName = "cn.mycommons.aopdemo.SampleJava"
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile project(':aoplog-lib')
-//    compile "com.github.liushuixiaoxia:aoplog-lib:${REPO_VERSION_NAME}"
+//    compile "com.github.LiushuiXiaoxia.AopLog:aoplog-lib:${REPO_VERSION_NAME}"
 }

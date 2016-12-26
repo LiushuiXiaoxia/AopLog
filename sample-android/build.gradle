@@ -2,16 +2,21 @@ buildscript {
     repositories {
         jcenter()
         mavenCentral()
+        //        mavenLocal()
+        maven { url 'https://jitpack.io' }
     }
     dependencies {
-        classpath 'org.aspectj:aspectjtools:1.8.1'
-//        classpath "com.github.liushuixiaoxia:aoplog-plugin:${REPO_VERSION_NAME}"
+        classpath "com.github.LiushuiXiaoxia.AopLog:aoplog-plugin:${REPO_VERSION_NAME}"
     }
 }
 
 apply plugin: 'com.android.application'
-//apply plugin: 'cn.mycommons.aoplog'
 //apply plugin: 'com.github.dcendents.android-maven'
+
+apply plugin: 'cn.mycommons.aoplog'
+aoplog {
+    enabled = true
+}
 
 android {
     compileSdkVersion 24
@@ -40,5 +45,5 @@ dependencies {
     compile 'com.android.support:appcompat-v7:24.0.0'
 
     compile project(':aoplog-lib')
-//    compile "com.github.liushuixiaoxia:aoplog-lib:${REPO_VERSION_NAME}"
+    compile "com.github.LiushuiXiaoxia.AopDemo:aoplog-lib:${REPO_VERSION_NAME}"
 }
