@@ -1,0 +1,58 @@
+apply plugin: 'java'
+apply plugin: 'maven'
+//apply plugin: 'com.github.dcendents.android-maven'
+
+group = REPO_GROUP
+version = REPO_VERSION_NAME
+
+buildscript {
+    repositories {
+        jcenter()
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'org.aspectj:aspectjtools:1.8.1'
+    }
+}
+
+sourceCompatibility = "1.7"
+targetCompatibility = "1.7"
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'org.aspectj:aspectjrt:1.8.10'
+}
+
+import org.aspectj.bridge.IMessage
+import org.aspectj.bridge.MessageHandler
+import org.aspectj.tools.ajc.Main
+
+compileJava.doLast {
+    String[] args = [
+            "-showWeaveInfo",
+            "-1.5",
+            "-inpath", compileJava.destinationDir.toString(),
+            "-aspectpath", compileJava.classpath.asPath,
+            "-d", compileJava.destinationDir.toString(),
+            "-classpath", compileJava.classpath.asPath
+    ]
+
+    def handler = new MessageHandler(true);
+    new Main().run(args, handler)
+
+    def log = project.logger
+    for (message in handler.getMessages(null, true)) {
+        switch (message.getKind()) {
+            case IMessage.WARNING:
+            case IMessage.INFO:
+            case IMessage.DEBUG:
+                log.debug ":aspectj:" + message.message, message.thrown
+                break;
+            case IMessage.ABORT:
+            case IMessage.ERROR:
+            case IMessage.FAIL:
+                log.error ":aspectj:" + message.message, message.thrown
+                break;
+        }
+    }
+}

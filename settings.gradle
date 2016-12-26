@@ -1,1 +1,4 @@
-include ':app', ':aoplog'
+include ':aoplog-lib'
+include ':aoplog-plugin'
+include ':sample-android'
+include ':sample-java'

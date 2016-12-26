@@ -8,8 +8,10 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/aoplog" />
-            <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/aoplog-lib" />
+            <option value="$PROJECT_DIR$/aoplog-plugin" />
+            <option value="$PROJECT_DIR$/sample-android" />
+            <option value="$PROJECT_DIR$/sample-java" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
