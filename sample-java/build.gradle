@@ -1,5 +1,7 @@
 apply plugin: 'java'
-//apply plugin: 'cn.mycommons.aoplog'
+if (SAMPLE_DEV && AOPLOG_DEV) {
+    apply plugin: 'cn.mycommons.aoplog'
+}
 apply plugin: 'application'
 
 sourceCompatibility = "1.7"
@@ -8,11 +10,17 @@ targetCompatibility = "1.7"
 buildscript {
     repositories {
         jcenter()
+        mavenLocal()
         mavenCentral()
     }
     dependencies {
-        classpath 'org.aspectj:aspectjtools:1.8.1'
-//        classpath "com.github.LiushuiXiaoxia.AopLog:aoplog-plugin:${REPO_VERSION_NAME}"
+        if (SAMPLE_DEV) {
+            if (AOPLOG_DEV) {
+                classpath "com.github.LiushuiXiaoxia.AopLog:aoplog-plugin:${REPO_VERSION_NAME_DEV}"
+            } else {
+                classpath "com.github.LiushuiXiaoxia.AopLog:aoplog-plugin:${REPO_VERSION_NAME}"
+            }
+        }
     }
 }
 
@@ -20,6 +28,13 @@ mainClassName = "cn.mycommons.aopdemo.SampleJava"
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile project(':aoplog-lib')
-//    compile "com.github.LiushuiXiaoxia.AopLog:aoplog-lib:${REPO_VERSION_NAME}"
+    if (SAMPLE_DEV) {
+        if (AOPLOG_DEV) {
+            compile "com.github.LiushuiXiaoxia.AopLog:aoplog-lib:${REPO_VERSION_NAME_DEV}"
+        } else {
+            compile "com.github.LiushuiXiaoxia.AopLog:aoplog-lib:${REPO_VERSION_NAME}"
+        }
+    } else {
+        compile project(':aoplog-lib')
+    }
 }

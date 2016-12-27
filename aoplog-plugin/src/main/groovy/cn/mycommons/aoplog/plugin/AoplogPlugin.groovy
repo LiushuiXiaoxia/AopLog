@@ -34,20 +34,18 @@ class AoplogPlugin implements Plugin<Project> {
                 variants = project.android.libraryVariants
             }
             variants.all { variant ->
-                if (!variant.buildType.isDebuggable()) {
-                    log.info("Skipping non-debuggable build type '${variant.buildType.name}'.")
-                } else if (!project.aoplog.enabled) {
-                    log.info("Aoplog is not disabled.")
-                } else {
+                if (project.aoplog.enabled) {
                     JavaCompile javaCompile = variant.javaCompile
                     ajcRun(project, javaCompile, true)
+                } else {
+                    log.warn("[${project.name}:aoplog] is disabled.")
                 }
             }
         } else if (hasJava) {
             if (project.aoplog.enabled) {
                 ajcRun(project, project.compileJava, false)
             } else {
-                log.info("Aoplog is not disabled.")
+                log.warn("[${project.name}:aoplog] is disabled.")
             }
         }
     }
@@ -73,7 +71,7 @@ class AoplogPlugin implements Plugin<Project> {
 
             String[] args = argsList.toArray(new String[argsList.size()])
 
-            log.error ":aoplog:ajc args: " + Arrays.toString(args)
+            log.error "[${project.name}:aoplog]:ajc args: " + Arrays.toString(args)
 
             def handler = new MessageHandler(true);
             new Main().run(args, handler)
@@ -83,12 +81,12 @@ class AoplogPlugin implements Plugin<Project> {
                     case IMessage.WARNING:
                     case IMessage.INFO:
                     case IMessage.DEBUG:
-                        log.debug ":aoplog:aspectj:" + message.message, message.thrown
+                        log.debug "[${project.name}:aoplog]:aspectj:" + message.message, message.thrown
                         break;
                     case IMessage.ABORT:
                     case IMessage.ERROR:
                     case IMessage.FAIL:
-                        log.error ":aoplog:aspectj:" + message.message, message.thrown
+                        log.error "[${project.name}:aoplog]:aspectj:" + message.message, message.thrown
                         break;
                 }
             }

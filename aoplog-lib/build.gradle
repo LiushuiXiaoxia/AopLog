@@ -3,7 +3,11 @@ apply plugin: 'maven'
 //apply plugin: 'com.github.dcendents.android-maven'
 
 group = REPO_GROUP
-version = REPO_VERSION_NAME
+if (AOPLOG_DEV) {
+    version = REPO_VERSION_NAME_DEV
+} else {
+    version = REPO_VERSION_NAME
+}
 
 buildscript {
     repositories {
@@ -11,7 +15,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath 'org.aspectj:aspectjtools:1.8.1'
+        classpath "org.aspectj:aspectjtools:$ASPECTJ_VERSION"
     }
 }
 
@@ -20,7 +24,7 @@ targetCompatibility = "1.7"
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'org.aspectj:aspectjrt:1.8.10'
+    compile "org.aspectj:aspectjrt:$ASPECTJ_VERSION"
 }
 
 import org.aspectj.bridge.IMessage

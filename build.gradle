@@ -1,10 +1,22 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
+    ext.with {
+        try {
+            AOPLOG_DEV = _AOPLOG_DEV != null && Boolean.parseBoolean(_AOPLOG_DEV)
+            SAMPLE_DEV = _SAMPLE_DEV != null && Boolean.parseBoolean(_SAMPLE_DEV)
+        } catch (ignored) {
+            AOPLOG_DEV = false
+            SAMPLE_DEV = false
+        } finally {
+            println "AOPLOG_DEV = ${AOPLOG_DEV}"
+            println "SAMPLE_DEV = ${SAMPLE_DEV}"
+        }
+    }
     repositories {
         jcenter()
         mavenCentral()
-//        mavenLocal()
+        mavenLocal()
         maven { url 'https://jitpack.io' }
     }
     dependencies {
@@ -19,7 +31,7 @@ allprojects {
     repositories {
         jcenter()
         mavenCentral()
-        //        mavenLocal()
+        mavenLocal()
         maven { url 'https://jitpack.io' }
     }
 }

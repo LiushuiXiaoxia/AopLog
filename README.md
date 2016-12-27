@@ -34,7 +34,7 @@ repositories {
 
 dependencies {
     // NO.4
-    compile "com.github.LiushuiXiaoxia.AopDemo:aoplog-lib:${lastversion}"
+    compile "com.github.LiushuiXiaoxia.AopLog:aoplog-lib:${lastversion}"
 }
 
 // NO.5
