@@ -17,11 +17,9 @@ class ProcessAdvancedImpl implements IProcess {
         Class[] parameterTypes = methodSignature.getParameterTypes();
         Object[] args = joinPoint.getArgs();
 
-        paramStr.append(joinPoint.getSourceLocation())
-                .append("\n")
-                .append(methodSignature.getReturnType().getSimpleName())
-                .append(" ")
-                .append(methodSignature.getDeclaringTypeName())
+        paramStr.append(joinPoint.getThis())
+                .append("--->")
+                .append(methodSignature.getDeclaringType().getSimpleName())
                 .append(".")
                 .append(methodSignature.getName())
                 .append("(\n");

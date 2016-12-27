@@ -12,10 +12,13 @@ public class SampleJava {
         AopLog.setLogCallback(new AopLog.OnLogCallback() {
             @Override
             public void log(Class clazz, String msg) {
-                System.out.println(clazz.getSimpleName() + "-->" + msg);
+                System.out.println("[" + clazz.getSimpleName() + "]" + msg);
             }
         });
 
-        new JavaLib().function();
+        Sub sub = new Sub();
+        sub.base("test");
+        sub.function(100);
+        sub.sub();
     }
 }

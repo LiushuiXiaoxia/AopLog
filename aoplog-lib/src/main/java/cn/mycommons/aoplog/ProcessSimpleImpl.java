@@ -16,9 +16,9 @@ class ProcessSimpleImpl implements IProcess {
         String[] parameterNames = methodSignature.getParameterNames();
         Object[] args = joinPoint.getArgs();
 
-        paramStr.append(methodSignature.getReturnType().getSimpleName())
-                .append(" ")
-                .append(methodSignature.getDeclaringTypeName())
+        paramStr.append(joinPoint.getThis())
+                .append("--->")
+                .append(methodSignature.getDeclaringType().getSimpleName())
                 .append(".")
                 .append(methodSignature.getName())
                 .append("()\n");

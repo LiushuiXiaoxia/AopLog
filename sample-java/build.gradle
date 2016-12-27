@@ -12,14 +12,13 @@ buildscript {
         jcenter()
         mavenLocal()
         mavenCentral()
+        maven { url 'https://jitpack.io' }
     }
     dependencies {
-        if (SAMPLE_DEV) {
-            if (AOPLOG_DEV) {
-                classpath "com.github.LiushuiXiaoxia.AopLog:aoplog-plugin:${REPO_VERSION_NAME_DEV}"
-            } else {
-                classpath "com.github.LiushuiXiaoxia.AopLog:aoplog-plugin:${REPO_VERSION_NAME}"
-            }
+        if (SAMPLE_DEV && AOPLOG_DEV) {
+            classpath "com.github.LiushuiXiaoxia.AopLog:aoplog-plugin:${REPO_VERSION_NAME_DEV}"
+        } else {
+            classpath "com.github.LiushuiXiaoxia.AopLog:aoplog-plugin:${REPO_VERSION_NAME}"
         }
     }
 }
@@ -29,12 +28,12 @@ mainClassName = "cn.mycommons.aopdemo.SampleJava"
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     if (SAMPLE_DEV) {
+        compile project(':aoplog-lib')
+    } else {
         if (AOPLOG_DEV) {
             compile "com.github.LiushuiXiaoxia.AopLog:aoplog-lib:${REPO_VERSION_NAME_DEV}"
         } else {
             compile "com.github.LiushuiXiaoxia.AopLog:aoplog-lib:${REPO_VERSION_NAME}"
         }
-    } else {
-        compile project(':aoplog-lib')
     }
 }
