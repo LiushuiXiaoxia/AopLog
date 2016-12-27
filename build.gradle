@@ -2,16 +2,28 @@
 
 buildscript {
     ext.with {
-        try {
-            AOPLOG_DEV = _AOPLOG_DEV != null && Boolean.parseBoolean(_AOPLOG_DEV)
-            SAMPLE_DEV = _SAMPLE_DEV != null && Boolean.parseBoolean(_SAMPLE_DEV)
-        } catch (ignored) {
-            AOPLOG_DEV = false
-            SAMPLE_DEV = false
-        } finally {
-            println "AOPLOG_DEV = ${AOPLOG_DEV}"
-            println "SAMPLE_DEV = ${SAMPLE_DEV}"
+        // 本地开发，非第一次开发
+        AOP_LOG_MODE_FIRST = "first"
+        // 推送到远程服务器
+        AOP_LOG_MODE_DEBUG = "debug"
+        // 本地开发第一次初始化
+        AOP_LOG_MODE_RELEASE = "release"
+
+        AOP_LOG_MODE = _AOP_LOG_MODE
+        switch (AOP_LOG_MODE) {
+            case AOP_LOG_MODE_FIRST:
+                AOPLOG_DEV = true
+                break;
+            case AOP_LOG_MODE_DEBUG:
+                AOPLOG_DEV = true
+                break;
+            case AOP_LOG_MODE_RELEASE:
+                AOPLOG_DEV = false
+                break;
         }
+
+        println "AOP_LOG_MODE = ${_AOP_LOG_MODE}"
+        println "AOPLOG_DEV = ${AOPLOG_DEV}"
     }
     repositories {
         jcenter()

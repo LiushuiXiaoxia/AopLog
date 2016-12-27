@@ -1,9 +1,8 @@
 apply plugin: 'java'
 apply plugin: 'maven'
-//apply plugin: 'com.github.dcendents.android-maven'
 
 group = REPO_GROUP
-if (AOPLOG_DEV) {
+if (AOP_LOG_MODE != AOP_LOG_MODE_RELEASE) {
     version = REPO_VERSION_NAME_DEV
 } else {
     version = REPO_VERSION_NAME
