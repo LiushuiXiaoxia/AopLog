@@ -34,6 +34,11 @@ dependencies {
     // NO.3
     compile 'com.github.LiushuiXiaoxia:AopLog:${lastversion}'
 }
+
+// NO.4 optional
+aspectjx {
+    includeJarFilter 'com.github.LiushuiXiaoxia/AopLog'
+}
 ```
 
 **Step 2. Set up**
