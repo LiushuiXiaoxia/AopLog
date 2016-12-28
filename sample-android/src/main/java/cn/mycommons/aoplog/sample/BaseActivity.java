@@ -1,4 +1,4 @@
-package cn.mycommons.aoplog;
+package cn.mycommons.aoplog.sample;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;

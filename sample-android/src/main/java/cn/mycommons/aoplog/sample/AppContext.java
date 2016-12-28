@@ -1,10 +1,11 @@
-package cn.mycommons.aoplog;
+package cn.mycommons.aoplog.sample;
 
 import android.app.Activity;
 import android.app.Application;
 import android.os.Bundle;
 import android.util.Log;
 
+import cn.mycommons.aopdemo.BuildConfig;
 import cn.mycommons.aoplog.library.AopLog;
 import cn.mycommons.aoplog.library.LogTraceEntry;
 import cn.mycommons.aoplog.library.LogTraceMethod;
@@ -19,6 +20,7 @@ public class AppContext extends Application {
     private static final String TAG = "AopDemo";
 
     static {
+        AopLog.setEnable(BuildConfig.DEBUG);
         AopLog.setLogCallback(new AopLog.OnLogCallback() {
             @Override
             public void log(LogTraceEntry entry) {
