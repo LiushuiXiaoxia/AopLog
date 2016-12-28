@@ -1,4 +1,2 @@
-include ':aoplog-lib'
-include ':aoplog-plugin'
+include ':library'
 include ':sample-android'
-include ':sample-java'

@@ -1,41 +1,14 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
-    ext.with {
-        // 本地开发，非第一次开发
-        AOP_LOG_MODE_FIRST = "first"
-        // 推送到远程服务器
-        AOP_LOG_MODE_DEBUG = "debug"
-        // 本地开发第一次初始化
-        AOP_LOG_MODE_RELEASE = "release"
-
-        AOP_LOG_MODE = _AOP_LOG_MODE
-        switch (AOP_LOG_MODE) {
-            case AOP_LOG_MODE_FIRST:
-                AOPLOG_DEV = true
-                break;
-            case AOP_LOG_MODE_DEBUG:
-                AOPLOG_DEV = true
-                break;
-            case AOP_LOG_MODE_RELEASE:
-                AOPLOG_DEV = false
-                break;
-        }
-
-        println "AOP_LOG_MODE = ${_AOP_LOG_MODE}"
-        println "AOPLOG_DEV = ${AOPLOG_DEV}"
-    }
     repositories {
         jcenter()
         mavenCentral()
-        mavenLocal()
-        maven { url 'https://jitpack.io' }
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:2.2.2'
-        classpath 'org.gradle.api.plugins:gradle-nexus-plugin:0.7'
         classpath 'com.github.dcendents:android-maven-gradle-plugin:1.5'
-        classpath 'org.gradle.api.plugins:gradle-nexus-plugin:0.7'
+        classpath 'com.hujiang.aspectjx:gradle-android-plugin-aspectjx:1.0.8'
     }
 }
 
@@ -43,8 +16,6 @@ allprojects {
     repositories {
         jcenter()
         mavenCentral()
-        mavenLocal()
-        maven { url 'https://jitpack.io' }
     }
 }
 

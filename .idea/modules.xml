@@ -3,10 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/AopLog.iml" filepath="$PROJECT_DIR$/AopLog.iml" />
-      <module fileurl="file://$PROJECT_DIR$/aoplog-lib/aoplog-lib.iml" filepath="$PROJECT_DIR$/aoplog-lib/aoplog-lib.iml" />
-      <module fileurl="file://$PROJECT_DIR$/aoplog-plugin/aoplog-plugin.iml" filepath="$PROJECT_DIR$/aoplog-plugin/aoplog-plugin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/library/library.iml" filepath="$PROJECT_DIR$/library/library.iml" />
       <module fileurl="file://$PROJECT_DIR$/sample-android/sample-android.iml" filepath="$PROJECT_DIR$/sample-android/sample-android.iml" />
-      <module fileurl="file://$PROJECT_DIR$/sample-java/sample-java.iml" filepath="$PROJECT_DIR$/sample-java/sample-java.iml" />
     </modules>
   </component>
 </project>
