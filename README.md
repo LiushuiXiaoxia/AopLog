@@ -46,7 +46,7 @@ public class AppContext extends Application {
     private static final String TAG = "AopDemo";
 
     static {
-        // defalut is true
+        // defalut is false
         AopLog.setEnable(BuildConfig.DEBUG);
         AopLog.setLogCallback(new AopLog.OnLogCallback() {
             @Override

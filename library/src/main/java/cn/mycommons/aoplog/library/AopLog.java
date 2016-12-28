@@ -21,7 +21,7 @@ public class AopLog {
     };
 
     private static OnLogCallback logCallback = EMPTY;
-    private static boolean enable = true;
+    private static boolean enable = false;
 
     public static void setEnable(boolean enable) {
         AopLog.enable = enable;
