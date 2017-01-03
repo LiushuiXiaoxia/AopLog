@@ -9,6 +9,8 @@
 
 [![](https://jitpack.io/v/LiushuiXiaoxia/AopLog.svg)](https://jitpack.io/#LiushuiXiaoxia/AopLog)
 
+[![Build Status](https://travis-ci.org/LiushuiXiaoxia/AopLog.svg?branch=master)](https://travis-ci.org/LiushuiXiaoxia/AopLog)
+
 
 **Step 1. Add the dependency**
 
