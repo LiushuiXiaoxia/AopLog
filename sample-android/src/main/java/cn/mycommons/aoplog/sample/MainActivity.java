@@ -18,6 +18,8 @@ public class MainActivity extends BaseActivity {
 
         testAnnotatedMethod(1, "a");
         testAnnotatedMethod2();
+
+        Fun.testStaticMethod(123);
     }
 
     @LogTraceMethod

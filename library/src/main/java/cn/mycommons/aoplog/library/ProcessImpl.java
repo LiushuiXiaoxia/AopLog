@@ -26,7 +26,7 @@ class ProcessImpl implements IProcess {
         entry.methodName = methodSignature.getName();
         entry.parameterNames = methodSignature.getParameterNames();
         entry.args = joinPoint.getArgs();
-        entry.declaringTypeName = methodSignature.getDeclaringType().getSimpleName();
+        entry.declaringType = methodSignature.getDeclaringType();
 
         entry.fileName = joinPoint.getSourceLocation().getFileName();
         entry.lineNum = joinPoint.getSourceLocation().getLine();

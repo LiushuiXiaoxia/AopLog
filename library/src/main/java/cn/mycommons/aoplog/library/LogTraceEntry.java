@@ -15,7 +15,7 @@ public class LogTraceEntry {
     String methodName;
     String[] parameterNames;
     Object[] args;
-    String declaringTypeName;
+    Class declaringType;
 
     // source
     String fileName;
@@ -52,8 +52,8 @@ public class LogTraceEntry {
         return args;
     }
 
-    public String getDeclaringTypeName() {
-        return declaringTypeName;
+    public Class getDeclaringType() {
+        return declaringType;
     }
 
     public String getFileName() {
@@ -86,9 +86,9 @@ public class LogTraceEntry {
 
     public String getLogTraceMessage() {
         StringBuilder str = new StringBuilder();
-        str.append(object)
+        str.append(object == null ? (declaringType != null ? declaringType.getName() : null) : object)
                 .append("--->")
-                .append(declaringTypeName != null && declaringTypeName.length() != 0 ? declaringTypeName + "." : "")
+                .append(declaringType != null ? declaringType.getSimpleName() + "." : "")
                 .append(methodName)
                 .append("()\n");
 
