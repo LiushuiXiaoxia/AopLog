@@ -4,12 +4,10 @@
 
 仿[Hugo](https://github.com/JakeWharton/hugo)写了一个AopLog，自己使用。
 
-
-# Usage
-
 [![](https://jitpack.io/v/LiushuiXiaoxia/AopLog.svg)](https://jitpack.io/#LiushuiXiaoxia/AopLog)
 [![Build Status](https://travis-ci.org/LiushuiXiaoxia/AopLog.svg?branch=master)](https://travis-ci.org/LiushuiXiaoxia/AopLog)
 
+# Usage
 
 **Step 1. Add the dependency**
 
